@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --blur:#000000cb;
+  --shadow: box-shadow 0.5s ease;
+  --blue: #0078d4;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica";
+  letter-spacing: 1.2px;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 1px solid var(--white);
+}
+
+.login {
+  padding: 20px;
+  border-radius: 30px;
+  width: 900px;
+  height: auto;
+  background: var(--blur);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  color: var(--white);
+  align-items: center;
+}
+
+label p {
+  font-weight: 500;
+  padding: 10px;
+}
+
+label p:hover {
+  border-left: 5px solid var(--blue);
+  font-weight: bold;
+  color: var(--blue);
+}
+
+input {
+  width: 40px;
+  border: none;
+  outline: none;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 4px 4px 0px 6px;
+}
+
+.button {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.button button {
+  padding: 20px;
+  background: transparent;
+  border: 3px solid var(--blue);
+  border-radius: 10px;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button button:hover {
+  background: var(--blue);
+}
+
+h1 {
+  margin-top: 20px;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/*
+input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
+    0 1px 1px rgba(255, 255, 255, 0.2);
+    -webkit-transition: var(--shadow);
+    -moz-transition: var(--shadow);
+    -o-transition: var(--shadow);
+    -ms-transition: var(--shadow);
+    transition: var(--shadow);*/

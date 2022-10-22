@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Car Evaluation Data Set</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="login">
+    <h1 class="title">Avaliação do Carro</h1>
+    <span class="line"></span>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="container">
+        <label for="buying">
+          <p>Preço de Compra</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="buying" value="0" checked>Baixo
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="buying" value="1">Médio
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="buying" value="2">Alto
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio4" name="buying" value="3">Muito Alto
+          <label class="form-check-label" for="radio4"></label>
+        </div>
+      </div>
+      <div class="container">
+        <label for="buying">
+          <p>Preço de Manutenção</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="maint" value="0" checked>Baixo
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="maint" value="1">Médio
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="maint" value="2">Alto
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio4" name="maint" value="3">Muito Alto
+          <label class="form-check-label" for="radio4"></label>
+        </div>
+      </div>
+      <div class="container">
+        <label for="buying">
+          <p>Quantidade de Portas</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="doors" value="2" checked>2 portas
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="doors" value="3">3 portas
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="doors" value="4">4 potas
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio4" name="doors" value="5">5 ou mais
+          <label class="form-check-label" for="radio4"></label>
+        </div>
+      </div>
+      <div class="container">
+        <label for="buying">
+          <p>Capacidade de pessoas</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="persons" value="2" checked>2 pessoas
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="persons" value="4">4 pessoas
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="persons" value="6">5 ou mais
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+      </div>
+      <div class="container">
+        <label for="buying">
+          <p>Tamanho do Porta Malas</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="lug_boot" value="0" checked>Pequeno
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="lug_boot" value="1">Médio
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="lug_boot" value="2">Grande
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+      </div>
+      <div class="container">
+        <label for="buying">
+          <p>Nível de segurança estimada</p>
+        </label>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio1" name="safety" value="0" checked>Baixa
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio2" name="safety" value="1">Média
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check-form-check-inline">
+          <input type="radio" class="form-check-input" id="radio3" name="safety" value="2">Alta
+          <label class="form-check-label" for="radio3"></label>
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Classificar Carro</button>
+      </div>
+    </form>
+    <div class="img"></div>
+    <h1> {{ prediction_text }} </h1>
+
+  </div>
+
+</body>
+
+</html>
